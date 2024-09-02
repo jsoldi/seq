@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "name": "@jsoldi/seq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsoldi/seq"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "npx tsc && node ./dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@jsoldi/hkt": "^1.2.7",
+    "xmldom-qsa": "^1.1.3"
+  }
+}
