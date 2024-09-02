@@ -1,19 +1,19 @@
 import { array, IMonadPlus, KRoot, Maybe, maybe, monadPlus, object, pipe } from "@jsoldi/hkt";
 import { DOMParser, Options } from "xmldom-qsa";
 
-type Seq<out T> = (node: Element) => (readonly [Element, T])[];
+export type Seq<out T> = (node: Element) => (readonly [Element, T])[];
 
-interface KSeq extends KRoot {
+export interface KSeq extends KRoot {
     readonly 0: unknown
     readonly body: Seq<this[0]>
 }
 
-type Text = string | null | undefined;
-type Struct = { readonly [K in keyof any]: Seq<any> };
-type Destruct<T extends Struct> = Seq<{ [K in keyof T]: T[K] extends Seq<infer A> ? A | undefined : never }>;
-type DestructAll<T extends Struct> = Seq<{ [K in keyof T]: T[K] extends Seq<infer A> ? A[] : never }>;
+export type Text = string | null | undefined;
+export type Struct = { readonly [K in keyof any]: Seq<any> };
+export type Destruct<T extends Struct> = Seq<{ [K in keyof T]: T[K] extends Seq<infer A> ? A | undefined : never }>;
+export type DestructAll<T extends Struct> = Seq<{ [K in keyof T]: T[K] extends Seq<infer A> ? A[] : never }>;
 
-interface ISeq extends IMonadPlus<KSeq> {
+export interface ISeq extends IMonadPlus<KSeq> {
     readonly text: Seq<Text>
     readonly html: Seq<string>
     readonly href: Seq<Text>
