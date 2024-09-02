@@ -111,7 +111,7 @@ export const seq: ISeq = (() => {
 
             const parse = (html: string, options?: Options) => <A>(seq: Seq<A>) => seq(
                 new DOMParser({
-                    ...{ errorhandler: { warning: () => { }, error: () => { } } },
+                    ...{ errorHandler: { warning: () => { }, error: () => { } } },
                     ...options
                 }).parseFromString(html, 'text/xml').documentElement
             ).map(([_, v]) => v);
